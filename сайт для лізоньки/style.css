@@ -1,0 +1,388 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+
+  font-family: Arial, sans-serif;
+
+  background:
+    linear-gradient(
+      120deg,
+      #10001f,
+      #50002f,
+      #18004d,
+      #10001f
+    );
+
+  background-size: 400% 400%;
+
+  animation: backgroundMove 12s ease infinite;
+}
+
+/* Рухомий фон */
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Картка */
+
+.card {
+  position: relative;
+  z-index: 2;
+
+  width: 90%;
+  max-width: 750px;
+
+  padding: 70px 35px;
+
+  text-align: center;
+
+  color: white;
+
+  background: rgba(10, 0, 25, 0.65);
+
+  border: 1px solid rgba(255, 130, 200, 0.5);
+
+  border-radius: 35px;
+
+  box-shadow:
+    0 0 30px rgba(255, 0, 120, 0.6),
+    0 0 100px rgba(130, 0, 255, 0.35);
+
+  backdrop-filter: blur(14px);
+
+  animation: cardMove 3s ease-in-out infinite alternate;
+}
+
+@keyframes cardMove {
+  from {
+    transform: translateY(-8px);
+  }
+
+  to {
+    transform: translateY(8px);
+  }
+}
+
+/* Верхній напис */
+
+.top-text {
+  color: #ff9dcc;
+
+  font-size: 15px;
+
+  letter-spacing: 4px;
+
+  margin-bottom: 20px;
+
+  animation: textSlide 3s ease-in-out infinite;
+}
+
+/* Рух напису */
+
+@keyframes textSlide {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateX(20px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(-20px);
+    opacity: 0.5;
+  }
+}
+
+/* Великий напис */
+
+h1 {
+  font-size: clamp(48px, 9vw, 95px);
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff4fa3,
+      #ffffff,
+      #c96cff,
+      #ff4fa3
+    );
+
+  background-size: 300%;
+
+  color: transparent;
+
+  background-clip: text;
+
+  -webkit-background-clip: text;
+
+  animation:
+    textColor 4s linear infinite,
+    titleJump 2s ease-in-out infinite;
+}
+
+@keyframes textColor {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 300%;
+  }
+}
+
+@keyframes titleJump {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Опис */
+
+.description {
+  max-width: 550px;
+
+  margin:
+    30px auto;
+
+  font-size: 20px;
+
+  line-height: 1.6;
+
+  color: #ffe1f1;
+}
+
+/* Кнопка */
+
+button {
+  padding:
+    17px
+    40px;
+
+  border: none;
+
+  border-radius: 50px;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff147d,
+      #9d20ff
+    );
+
+  box-shadow:
+    0 0 20px #ff147d;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+
+  box-shadow:
+    0 0 35px #ff147d,
+    0 0 70px #9d20ff;
+}
+
+/* Прихований напис */
+
+#message {
+  max-height: 0;
+
+  overflow: hidden;
+
+  opacity: 0;
+
+  margin-top: 0;
+
+  color: #ffb5db;
+
+  font-size: 22px;
+
+  transition: 0.7s;
+}
+
+#message.show {
+  max-height: 100px;
+
+  margin-top: 30px;
+
+  opacity: 1;
+}
+
+/* Сердечка */
+
+.hearts {
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+.hearts span {
+  position: absolute;
+
+  bottom: -80px;
+
+  color: #ff4f9b;
+
+  font-size: 35px;
+
+  opacity: 0;
+
+  text-shadow:
+    0 0 15px #ff0077,
+    0 0 30px #ff0077;
+
+  animation:
+    heartFly 8s linear infinite;
+}
+
+.hearts span:nth-child(1) {
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.hearts span:nth-child(2) {
+  left: 15%;
+  font-size: 25px;
+  animation-delay: 2s;
+}
+
+.hearts span:nth-child(3) {
+  left: 27%;
+  font-size: 45px;
+  animation-delay: 4s;
+}
+
+.hearts span:nth-child(4) {
+  left: 38%;
+  animation-delay: 1s;
+}
+
+.hearts span:nth-child(5) {
+  left: 50%;
+  font-size: 50px;
+  animation-delay: 5s;
+}
+
+.hearts span:nth-child(6) {
+  left: 63%;
+  animation-delay: 3s;
+}
+
+.hearts span:nth-child(7) {
+  left: 74%;
+  font-size: 28px;
+  animation-delay: 6s;
+}
+
+.hearts span:nth-child(8) {
+  left: 83%;
+  font-size: 48px;
+  animation-delay: 2.5s;
+}
+
+.hearts span:nth-child(9) {
+  left: 92%;
+  animation-delay: 4.5s;
+}
+
+.hearts span:nth-child(10) {
+  left: 45%;
+  font-size: 25px;
+  animation-delay: 7s;
+}
+
+/* Політ сердечок */
+
+@keyframes heartFly {
+  0% {
+    transform:
+      translateY(0)
+      rotate(0deg)
+      scale(0.5);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateY(-115vh)
+      rotate(360deg)
+      scale(1.4);
+
+    opacity: 0;
+  }
+}
+
+/* Для телефона */
+
+@media (max-width: 600px) {
+
+  .card {
+    padding:
+      45px
+      20px;
+  }
+
+  .description {
+    font-size: 17px;
+  }
+
+  .top-text {
+    letter-spacing: 2px;
+  }
+
+  button {
+    font-size: 16px;
+  }
+}

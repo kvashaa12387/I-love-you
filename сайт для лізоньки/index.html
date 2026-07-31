@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Для тебе 💖</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Літаючі сердечка -->
+  <div class="hearts">
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+    <span>❤</span>
+  </div>
+
+  <!-- Головний блок -->
+  <main class="card">
+
+    <p class="top-text">СПЕЦІАЛЬНО ДЛЯ ТЕБЕ ✨</p>
+
+    <h1>Ти особлива 💖</h1>
+
+    <p class="description">
+      Нехай кожен день буде наповнений
+      посмішками, теплом і щасливими моментами ✨
+    </p>
+
+    <button onclick="showMessage()">
+      Натисни сюди 💌
+    </button>
+
+    <div id="message">
+      💗 Ти робиш цей світ яскравішим 💗
+    </div>
+
+  </main>
+
+  <script>
+    function showMessage() {
+      document
+        .getElementById("message")
+        .classList.toggle("show");
+    }
+  </script>
+
+</body>
+</html>
